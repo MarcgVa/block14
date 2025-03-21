@@ -7,6 +7,7 @@ const userInputString = prompt(
   "1,2,3,4,5"
 );
 
+
 // Split the string of numbers into an array of strings.
 const stringArray = userInputString.split(",");
 
@@ -18,7 +19,7 @@ for (let i = 0; i < stringArray.length; i++) {
   numbers.push(number);
 }
 
-// Peform some calculations on the numbers.
+// Perform some calculations on the numbers.
 console.log(numbers);
 console.log(`You have given ${getLength(numbers)} numbers.`);
 console.log(`The sum of your numbers is ${getSum(numbers)}.`);
@@ -38,6 +39,7 @@ console.log(`The odd numbers you gave are ${getOdds(numbers)}.`);
  */
 function getLength(numbers) {
   // TODO
+  return numbers.length;
 }
 
 /**
@@ -46,6 +48,11 @@ function getLength(numbers) {
  */
 function getSum(numbers) {
   // TODO
+  let sum = 0;
+  for (const number of numbers) {
+    sum += number;
+  }
+  return sum;
 }
 
 /**
@@ -54,6 +61,8 @@ function getSum(numbers) {
  */
 function getMean(numbers) {
   // TODO
+  let mean = getSum(numbers) / getLength(numbers);  
+  return mean; 
 }
 
 /**
@@ -62,6 +71,15 @@ function getMean(numbers) {
  */
 function getMin(numbers) {
   // TODO
+  //Math.min(...numbers);
+
+  let min = numbers[0];
+  for (const number of numbers) {
+    if( min > number){
+      min = number;
+    }
+  }
+  return min;
 }
 
 /**
@@ -70,6 +88,13 @@ function getMin(numbers) {
  */
 function getMax(numbers) {
   // TODO
+  let max = numbers[0];
+  for (const number of numbers) {
+    if( max < number){
+      max = number;
+    }
+  }
+  return max;
 }
 
 /**
@@ -78,6 +103,7 @@ function getMax(numbers) {
  */
 function getRange(numbers) {
   // TODO
+  return getMax(numbers) - getMin(numbers);
 }
 
 /**
@@ -86,6 +112,13 @@ function getRange(numbers) {
  */
 function getEvens(numbers) {
   // TODO
+  let evenArr = [];
+  for (const number of numbers) {
+    if (number % 2 === 0) {
+      evenArr.push(number);
+    }
+  }
+  return evenArr;
 }
 
 /**
@@ -94,4 +127,13 @@ function getEvens(numbers) {
  */
 function getOdds(numbers) {
   // TODO
+  let oddArr = [];
+  for (const number of numbers) {
+    if ( number % 2 !== 0 ) {
+      oddArr.push(number);
+    }
+  }
+  return oddArr;
 }
+
+
